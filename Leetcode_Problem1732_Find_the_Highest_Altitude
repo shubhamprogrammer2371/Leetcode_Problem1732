@@ -1,0 +1,23 @@
+int largestAltitude(int* gain, int gainSize){
+    int alt = 0 ;
+    for( int i = 1 ; i < gainSize ; i++)
+    {
+        gain[i] += gain[i-1];
+        alt = (gain[i-1] > alt) ? gain[i-1] : alt;
+    }
+    return (gain[gainSize-1] > alt) ? gain[gainSize-1] : alt;
+}
+
+
+---------------------------------------------------------------------------
+
+
+int largestAltitude(int* gain, int gainSize) {
+    int max = 0, sum = 0; 
+    for (int i = 0; i < gainSize; i++) 
+    {
+        sum += gain[i];  
+        max = (sum > max) ? sum : max;
+    }
+    return max;
+}
